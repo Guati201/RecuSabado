@@ -12,12 +12,12 @@ const router = require('./routes');
 //conexión a la base de datos
 // const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-const urlDB = 'mongodb://localhost:27017/dbsistema';
+const urlDB = 'mongodb+srv://recuperacionciclo3:pcsQMIPyOYNQckHP@cluster0.qwfyi.mongodb.net/recuperacionDB?retryWrites=true&w=majority';
 mongoose.connect(urlDB, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
-.then(mongoose => console.log('Conectado on 27017'))
+.then(mongoose => console.log('Conectado on Atlas'))
 .catch(err => console.log(err))
 
 const app = express();
@@ -37,7 +37,7 @@ app.set('PORT', process.env.PORT || 3000);
 
 
 app.listen(app.get('PORT'), () => {
-  console.log(`Server started on port: ${app.get('PORT')}`);
+  console.log(` Hello Server started on port: ${app.get('PORT')}`);
 });
 
 app.get('/', (req,res) => {
